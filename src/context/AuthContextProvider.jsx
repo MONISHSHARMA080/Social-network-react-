@@ -45,6 +45,7 @@ const AuthContextProvider = ({children})=>{
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
             console.log("Refresh : "+data.refresh);
+            console.log(data);
           } 
           else {
             const data = await response.json(); // Parse the response even if it's not a success status

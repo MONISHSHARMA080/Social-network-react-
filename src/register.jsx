@@ -35,8 +35,8 @@ export default function Register() {
 
       if (response.status === 201) {
         const data = await response.json();
-        setAuthTokens(data);
-        setUser(jwt_decode(data.access));
+        setAuthTokens(data=>data);//for testing setAuthTokens(data) would have worked just fine
+        setUser(jwt_decode(data.access_token));
         localStorage.setItem('authTokens', JSON.stringify(data));
       } else {
         const data = await response.json();

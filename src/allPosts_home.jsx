@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
+
+
 
 
 export default function Post(props) {
@@ -93,7 +96,9 @@ req_user_id === props.owner ? (
 ) : null
       ) : null}
         
-        <span className="post-likes" onClick={like}>Likes: {likes}</span>
+        <motion.button className="post-likes" onClick={like} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+             Likes: {likes}
+        </motion.button>
         <span className="post-date">On : {formattedDate}</span>
       </div>
   );

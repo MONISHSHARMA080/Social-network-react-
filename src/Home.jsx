@@ -1,6 +1,7 @@
 import React, { useState, useEffect , useContext } from 'react';
 import Post from './allPosts_home';
 import AuthContext from './context/AuthContext';
+import { motion, useAnimation } from 'framer-motion'; 
 
 export default function Home() {
   const [data, setData] = useState([]); 
@@ -37,7 +38,17 @@ export default function Home() {
         console.error(err.message);
       });
       
-  }, []);
+  }, [authTokens]);
+
+//animation
+ // Using Framer Motion's useAnimation hook to control animation
+ const controls = useAnimation();
+ const postAnimation = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
+
+
 
   return (
     <>
@@ -45,6 +56,12 @@ export default function Home() {
 
       <div className='post-container'> 
             {data.map((post) => (
+                <motion.div
+                key={post.id}
+                initial="hidden" // Set initial animation state
+                animate="visible" // Set animation state for when the component mounts
+                variants={postAnimation} // Use the animation properties
+              >
                           <Post
                           id={post.id}
                           text={post.text}
@@ -53,7 +70,8 @@ export default function Home() {
                           date={post.date}
                           likes={post.likes}
                           key={post.id}
-                        />         
+                        />
+                        </motion.div>         
                           ))}
       </div>
     </>

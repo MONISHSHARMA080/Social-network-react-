@@ -9,9 +9,9 @@ export default function Register() {
 
 function register(e) {
   e.preventDefault();
-  //destructuring all the elements from the input
-  const { username, email, password, confirmation } = e.target.elements;
-  console.log(username.value, email.value, password.value, confirmation.value);
+  const  username  = e.target.username.value
+  const  email  = e.target.email.value
+  const  password  = e.target.password.value
 }
 
 
@@ -21,7 +21,7 @@ function register(e) {
   return (
     <div >
       <h2 className='m-4' >Register</h2>
-      <form className='w-11/12' >
+      <form className='w-11/12' onSubmit={ (e)=>register(e)    } >
         <div className="form-group">
           <input
             autoFocus
@@ -55,8 +55,8 @@ function register(e) {
             placeholder="Confirm Password"
           />
         </div>
-        <button  className="btn btn-primary m-2" type="submit" onClick={(e)=>register(e)} > Register </button>
-      </form>
+        <button  className="btn btn-primary m-2" type="submit"  > Register </button>
+      </form  >
 
       <h4 className='m-2'>
         Already have an account?<Link className="btn btn-danger m-3" to="/login">Log In here.</Link>

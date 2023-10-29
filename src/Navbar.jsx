@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
 import './styles(post).css';
 import { useNavigate } from "react-router-dom";
-
+import { motion } from 'framer-motion';
 
 export default function NavBar() {
 
@@ -36,22 +36,44 @@ export default function NavBar() {
       <div>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link className="nav-link flowing-gradient" to="/">All Posts</Link>  
+            <Link className="nav-link flowing-gradient" to="/"  >
+              <motion.button className="nav-link flowing-gradient"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+                All Posts
+              </motion.button>
+            </Link>  
           </li>
           <li className="nav-item">
-            <Link className="nav-link flowing-gradient" to="/following">Following</Link>
+            <Link className="nav-link flowing-gradient" to="/following">
+              <motion.button className="nav-link flowing-gradient"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+                  Following
+              </motion.button>
+            </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link flowing-gradient" to="New-post">New post</Link>
+            <Link className="nav-link flowing-gradient" to="New-post">
+              <motion.button className="nav-link flowing-gradient"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+                New post
+              </motion.button>
+            </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link flowing-gradient" to="/login">Log In</Link>
+            <Link className="nav-link flowing-gradient" to="/login">
+              <motion.button className="nav-link flowing-gradient"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+                Log in
+              </motion.button>
+            </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link flowing-gradient" to="/register">Register</Link>
+            <Link className="nav-link flowing-gradient" to="/register">
+              <motion.button className="nav-link flowing-gradient"  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+                Register
+              </motion.button>
+            </Link>
           </li>
           <li className="nav-item">
-            <button className="nav-link flowing-gradient" onClick={(e)=>{e.preventDefault;logout()}} >Log Out</button>
+            <motion.button className="nav-link flowing-gradient m-2 " onClick={(e)=>{e.preventDefault;logout()}} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+              Log Out
+            </motion.button>
           </li>
         </ul>
       </div>

@@ -3,6 +3,7 @@ import Post from './allPosts_home';
 import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
 import { useNavigate } from "react-router-dom";
+import { motion, useAnimation } from 'framer-motion'; 
 
 
 export default function Following() {
@@ -15,9 +16,6 @@ export default function Following() {
     //   'Content-Type': 'application/json',
     // };
     
-    // if (authTokens) {
-    //   headers.Authorization = `Bearer ${authTokens.access}`;
-    // } 
 
 
 
@@ -27,14 +25,6 @@ export default function Following() {
       if (user === null){
         navigate("/");
      }
-    //  console.log("---||||----")
-    //  console.log(user)
-    //  console.log("---||||----")
-    //  console.log(user.user_id)
-    //  console.log("---///|||\\\----")
-    //  console.log("---..........----")
-    // console.log(authTokens.access)
-    //  console.log("---..........----")
     else{ 
     fetch(`https://social-network-monish.onrender.com/api/network/${user.user_id}`, {
         
@@ -61,21 +51,38 @@ export default function Following() {
         });}
     }, []);
 
+//animation
+const controls = useAnimation();
+const postAnimation = {
+ hidden: { opacity: 0, y: 50 },
+ visible: { opacity: 1, y: 0 },
+};
+
+
+
     return (
       <>
         <h1 className='text-5xl font-bold m-6 p-4 flex-shrink  text-amber-500' > Following:</h1>
         <div className='post-container'> 
-              {data.map((post) => (
-                  <Post
-                  id={post.id}
-                  text={post.text}
-                  owner={post.owner_id}
-                  owner_name={post.owner_name}
-                  date={post.date}
-                  likes={post.likes}
-                  key={post.id} />
-              ))}
-        </div>
+            {data.map((post) => (
+                <motion.div
+                key={post.id}
+                initial="hidden" // Set initial animation state
+                animate="visible" // Set animation state for when the component mounts
+                variants={postAnimation} // Use the animation properties
+              >
+                          <Post
+                          id={post.id}
+                          text={post.text}
+                          owner={post.owner_id}
+                          owner_name={post.owner_name}
+                          date={post.date}
+                          likes={post.likes}
+                          key={post.id}
+                        />
+                        </motion.div>         
+                          ))}
+      </div>
       </>
     );
   }

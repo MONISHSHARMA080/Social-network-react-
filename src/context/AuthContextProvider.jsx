@@ -16,8 +16,6 @@ const AuthContextProvider = ({children})=>{
     // for testing only 
     useEffect(() => {
        if (user!=null){
-      //  console.log("here comes the user---");
-      //  console.log(  user.username)
     }
 
       }, [authTokens,user]);// useEffect
@@ -46,10 +44,6 @@ const AuthContextProvider = ({children})=>{
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            //   redirecting the users
-            // return redirect("New-post");
-            //for testing
-            // console.log("access : "+data.access);
             console.log("Refresh : "+data.refresh);
           } 
           else {
@@ -60,7 +54,7 @@ const AuthContextProvider = ({children})=>{
           }
         } 
         catch (error) {
-          console.error('Error:', error.message);
+          console.error('Error--||--:', error.message);
         }// end of catch error
       } // end of loguserin
 
@@ -69,12 +63,9 @@ const AuthContextProvider = ({children})=>{
         setAuthTokens(null)
         setUser(null)
         localStorage.removeItem('authTokens')
-        // history.push('/login') implemnented  in Navbar
     }
 
-    // update the refresh token
     let updateToken = async ()=> {
-      // console.log("__||REFRESH TOKEN Fn|__")
 
       let response = await fetch('https://social-network-monish.onrender.com/api/token/refresh/', {
           method:'POST',
@@ -85,21 +76,12 @@ const AuthContextProvider = ({children})=>{
       })
 
       let data = await response.json()
-      // console.log("++++++data from api/token/refresh/+++++++++")
-      // console.log(data)
-      // console.log("++++++data from api/token/refresh/+++++++++")
-      // console.log("|||||||||authTokens|||||||||")
-      //  console.log(authTokens)
-      // console.log("|||||||||authTokens|||||||||")
       if  (authTokens){
 
-        // console.log("authTokens.refresh{{{{{{{-||}}}}}");
-        // console.log(authTokens.refresh);
       }
      
       
       if (response.status === 200){
-        // console.log("____----____")
           setAuthTokens(data)
           setUser(jwt_decode(data.access))
           localStorage.setItem('authTokens', JSON.stringify(data))
@@ -113,22 +95,18 @@ const AuthContextProvider = ({children})=>{
       
   }
 
-
-
   useEffect(()=> {
 
     if(loading){
         updateToken()
-        // console.log("updateToken()--from loading----->>");
     }
 
     //change this 
     let thirtySixMinutes = 1000* 60 *24 ;
 
     let interval =  setInterval(()=> {
-        if(authTokens){
+        if(authTokens.access){
             updateToken()
-            // console.log("updateToken() -from interval----->>");
         }
     }, thirtySixMinutes)
     return ()=> clearInterval(interval)
@@ -146,6 +124,8 @@ const AuthContextProvider = ({children})=>{
      "user":user,
      "authTokens":authTokens,
      "logoutUser":logoutUser,
+     "setAuthTokens":setAuthTokens,
+     "setUser":setUser
 
  } // contextData
 

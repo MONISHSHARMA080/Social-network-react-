@@ -96,7 +96,7 @@ req_user_id === props.owner ? (
 ) : null
       ) : null}
         
-        <motion.button className="post-likes" onClick={like} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}  >
+        <motion.button className="post-likes" onClick={like} whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }}  >
              Likes: {likes}
         </motion.button>
         <span className="post-date">On : {formattedDate}</span>

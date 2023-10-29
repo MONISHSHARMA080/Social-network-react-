@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from './context/AuthContext';
+import { useContext } from 'react';
 
-const Register = () => {
-  // const [message, setMessage] = useState('');
+export default function Register() {
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // You can add your registration logic here and update the message accordingly.
-  //   setMessage('Registration failed. Please try again.'); // Replace with your actual registration logic.
-  // };
-  {/* {
-        {message && <div>{message}</div>} }
-   onSubmit={handleSubmit} */}
+
+
+function register(e) {
+  e.preventDefault();
+  //destructuring all the elements from the input
+  const { username, email, password, confirmation } = e.target.elements;
+  console.log(username.value, email.value, password.value, confirmation.value);
+}
+
+
+
+
 
   return (
     <div >
@@ -50,7 +55,7 @@ const Register = () => {
             placeholder="Confirm Password"
           />
         </div>
-        <input className="btn btn-primary m-2" type="submit" value="Register" />
+        <button  className="btn btn-primary m-2" type="submit" onClick={(e)=>register(e)} > Register </button>
       </form>
 
       <h4 className='m-2'>
@@ -58,6 +63,12 @@ const Register = () => {
       </h4 >
     </div>
   );
-};
 
-export default Register;
+
+
+
+
+
+
+}//register function
+

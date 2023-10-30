@@ -44,18 +44,27 @@ const AuthContextProvider = ({children})=>{
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            console.log("Refresh : "+data.refresh);
-            console.log(data);
+            // console.log("###########################")
+            // console.log(data)
+            // console.log("###########################")
+            // console.log("access : "+data.access);
+            // console.log("pppppppppppppppppppppppppppppppppppppppp");
+            console.log("===========jwt_decode(data.access)============");
+            console.log(jwt_decode(data.access));
+            console.log("===========jwt_decode(data.access)============");
           } 
           else {
             const data = await response.json(); // Parse the response even if it's not a success status
-            console.log("data.access: " + data.access);
+            console.log("++++++  data: ++++++" );
+            console.log(data);
+            console.log("++++++  data: ++++++" );
             console.error('Error decoding token11'); 
             alert('Something went wrong!');
           }
         } 
         catch (error) {
           console.error('Error--||--:', error.message);
+          console,log(error);
         }// end of catch error
       } // end of loguserin
 

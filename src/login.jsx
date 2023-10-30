@@ -23,6 +23,7 @@ export default function Login() {
             name="username"
             placeholder="Username"
             required
+            
           />
         </div>
         <div className="form-group">

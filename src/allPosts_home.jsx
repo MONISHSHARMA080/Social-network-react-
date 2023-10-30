@@ -15,7 +15,9 @@ export default function Post(props) {
   const [number, setNumber] = useState(0)
   const [likes, setLikes] = useState(props.likes + 1)
   const {user} = useContext(AuthContext) // from react router -- provide the login user's id
-  const req_user_id = user ? user.user_id : null;
+  // now addind user id taken from decoded jwt tokens to req_usr_id
+  //to ensure (or frontend vlidation) that only the owner of the post can edit it  
+  const req_user_id = user ? user.user_id : null;  
   const navigate = useNavigate();
 
 

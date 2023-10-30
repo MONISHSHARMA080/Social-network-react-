@@ -43,16 +43,16 @@ function register(e) {
     const data  = json_response
     setAuthTokens(data)
     setUser(jwt_decode(data.access))
-    console.log("-------JWT DECODE-----------")
-    console.log(jwt_decode(data.access))
-    console.log("-------JWT DECODE-----------")
-    // storing items in the 
-    console.log("json_response--==>>");
-    console.log(json_response);
-    console.log("json_response--==>>");
-    console.log("++++++access_token+++++++");
-    console.log(json_response.access);
-    console.log("++++++access_token+++++++");
+    // console.log("-------JWT DECODE-----------")
+    // console.log(jwt_decode(data.access))
+    // console.log("-------JWT DECODE-----------")
+    // // storing items in the 
+    // console.log("json_response--==>>");
+    // console.log(json_response);
+    // console.log("json_response--==>>");
+    // console.log("++++++access_token+++++++");
+    // console.log(json_response.access);
+    // console.log("++++++access_token+++++++");
 
     localStorage.setItem('authTokens', JSON.stringify(data))
   })

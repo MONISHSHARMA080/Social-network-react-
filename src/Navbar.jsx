@@ -11,7 +11,7 @@ export default function NavBar() {
 
   const navigate = useNavigate();
 
-  const {logoutUser} = useContext(AuthContext)
+  const {logoutUser , user} = useContext(AuthContext)
   function logout(){
     console.log("logout-----");
     logoutUser();
@@ -75,6 +75,18 @@ export default function NavBar() {
               Log Out
             </motion.button>
           </li>
+          
+          {/* if the user is signed in then only print their name  */}
+          {user ? (
+          <li className="nav-item">
+            <motion.button className="nav-link flowing-gradient m-2 "  whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} >
+              {user.username}
+            </motion.button>
+          </li> ): null}
+
+
+
+
         </ul>
       </div>
     </nav>

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 // rm hardcoding of the value in views.py--CreatePost and make a new query param.   
 export default function NewPost(){
 const [text, setText] = useState('');
@@ -47,10 +48,11 @@ function api_call(){
       })
         .then((response) => response.json())
         .then((result) => {
-          // Print result
-          console.log(result);
+          //  Print result
+          // console.log(result);
         });
       setText('');
+      navigate("/");
 }
 
 

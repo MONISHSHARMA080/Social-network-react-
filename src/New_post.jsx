@@ -44,10 +44,12 @@ function api_call(){
       })
         .then((response) => response.json())
         .then((result) => {
+            
+            navigate("/");
           //  Print result
           // console.log(result);
         });
-      navigate("/");
+      
 }
 
 

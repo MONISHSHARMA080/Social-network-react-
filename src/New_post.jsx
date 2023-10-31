@@ -20,10 +20,6 @@ useEffect(()=>{
        navigate("/");
     }
     else{
-      console.log(user)
-      console.log("++===authTokens.access++===")
-      console.log(authTokens.access)
-      console.log("++===authtokens.access++===")
       }
     
 
@@ -51,7 +47,6 @@ function api_call(){
           //  Print result
           // console.log(result);
         });
-      setText('');
       navigate("/");
 }
 

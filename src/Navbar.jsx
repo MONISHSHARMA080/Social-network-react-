@@ -13,14 +13,14 @@ export default function NavBar() {
 
   const {logoutUser , user} = useContext(AuthContext)
   function logout(){
-    console.log("logout-----");
+    // console.log("logout-----");
     logoutUser();
     // Redirect to login.
     navigate("/login");
   }
 
   return (<>
-    <nav className="navbar navbar-expand-lg navbar-light bg-">
+    <nav className=" flex justify-start navbar navbar-expand-lg navbar-light bg-">
       <span
         className="navbar-brand"
         style={{

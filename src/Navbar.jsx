@@ -22,7 +22,7 @@ export default function NavBar() {
   
   return (
     <>
-      <nav className="flex flex-wrap flex-col md:flex-row">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <span
           className="navbar-brand"
           style={{
@@ -35,7 +35,7 @@ export default function NavBar() {
           Network
         </span>
 
-        <div className="flex flex-wrap">
+        <div className="lg:flex lg:flex-wrap">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link flowing-gradient" to="/">
@@ -105,7 +105,6 @@ export default function NavBar() {
                 Log Out
               </motion.button>
             </li>
-
             {user ? (
               <li className="nav-item">
                 <motion.button

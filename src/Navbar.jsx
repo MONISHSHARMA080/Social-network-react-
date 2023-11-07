@@ -22,7 +22,7 @@ export default function NavBar() {
   
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light ">
+      <nav className="flex flex-wrap flex-col md:flex-row">
         <span
           className="navbar-brand"
           style={{

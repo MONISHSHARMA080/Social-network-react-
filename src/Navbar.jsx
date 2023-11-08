@@ -19,28 +19,30 @@ export default function NavBar() {
     navigate("/login");
   }
 
-  
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light ">
-        <span
-          className="navbar-brand"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #ffd700, #ff0000)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-          }}
-        >
-          Network
-        </span>
+      <nav className="bg-blue-500 p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold text-white">
+            <motion.span
+              style={{
+                backgroundImage: 'linear-gradient(to right, #ffd700, #ff0000)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Network
+            </motion.span>
+          </Link>
 
-        <div className="lg:flex lg:flex-wrap">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/">
+          <ul className="lg:flex lg:space-x-4">
+            <li>
+              <Link to="/" className="text-white hover:underline">
                 <motion.button
-                  className="nav-link flowing-gradient"
+                  className="flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -48,10 +50,10 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/following">
+            <li>
+              <Link to="/following" className="text-white hover:underline">
                 <motion.button
-                  className="nav-link flowing-gradient"
+                  className="flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -59,10 +61,10 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="New-post">
+            <li>
+              <Link to="New-post" className="text-white hover:underline">
                 <motion.button
-                  className="nav-link flowing-gradient"
+                  className="flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -70,10 +72,10 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/login">
+            <li>
+              <Link to="/login" className="text-white hover:underline">
                 <motion.button
-                  className="nav-link flowing-gradient"
+                  className="flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -81,10 +83,10 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/register">
+            <li>
+              <Link to="/register" className="text-white hover:underline">
                 <motion.button
-                  className="nav-link flowing-gradient"
+                  className="flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -92,11 +94,11 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
+            <li>
               <motion.button
-                className="nav-link flowing-gradient m-2"
+                className="flowing-gradient m-2 text-white hover:underline"
                 onClick={(e) => {
-                  e.preventDefault;
+                  e.preventDefault();
                   logout();
                 }}
                 whileHover={{ scale: 1.1 }}
@@ -106,9 +108,9 @@ export default function NavBar() {
               </motion.button>
             </li>
             {user ? (
-              <li className="nav-item">
+              <li>
                 <motion.button
-                  className="nav-link flowing-gradient m-2"
+                  className="flowing-gradient m-2 text-white hover:underline"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >

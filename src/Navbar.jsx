@@ -22,7 +22,7 @@ export default function NavBar() {
   
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <span
           className="navbar-brand"
           style={{

@@ -22,9 +22,9 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-start">
-        <div className="flex flex-wrap ">
-          <div className="flex flex-wrap justify-content-start align-content-center ">
+      <nav className="navbar navbar-expand-lg navbar-light ">
+        {/* <div className="flex flex-wrap "> */}
+          <div className="flex d-flex align-content-start flex-wrap">
             <ul className="navbar-nav ">
               <li className="nav-item">
                 <Link className="nav-link flowing-gradient" to="/">
@@ -131,7 +131,7 @@ export default function NavBar() {
               </li>
             </ul>
           </div>
-        </div>
+        {/* </div> */}
       </nav>
       <div id="component">
         <Outlet />

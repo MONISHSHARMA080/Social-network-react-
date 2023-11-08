@@ -19,20 +19,13 @@ export default function NavBar() {
     navigate("/login");
   }
 
-  if ( user){
-
-    console.log("++++++++++++++");
-    console.log(user);
-    console.log("++++++++++++");
-  }
-
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <div className="flex flex-wrap justify-between">
-          {/* <div className="flex flex-wrap"> */}
-            <ul className="navbar-nav mr-auto">
+      <nav className="navbar navbar-expand-lg navbar-light d-flex justify-content-start">
+        <div className="flex flex-wrap ">
+          <div className="flex flex-wrap justify-content-start align-content-center ">
+            <ul className="navbar-nav ">
               <li className="nav-item">
                 <Link className="nav-link flowing-gradient" to="/">
                   <motion.button
@@ -137,7 +130,7 @@ export default function NavBar() {
                 </motion.button>
               </li>
             </ul>
-          {/* </div> */}
+          </div>
         </div>
       </nav>
       <div id="component">

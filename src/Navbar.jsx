@@ -22,7 +22,7 @@ export default function NavBar() {
 
 
   return ( <>
-    <nav className="bg-blue-500 p-4">
+    <nav className=" bg-slate-950 p-4">
       <div className="flex flex-wrap justify-between">
         <ul className="flex flex-wrap">
           <li className="nav-item">
@@ -36,6 +36,7 @@ export default function NavBar() {
               </motion.button>
             </Link>
           </li>
+          
           <li className="nav-item">
             <Link to="/following" className="nav-link flowing-gradient">
               <motion.button
@@ -47,6 +48,7 @@ export default function NavBar() {
               </motion.button>
             </Link>
           </li>
+
           <li className="nav-item">
             <Link to="New-post" className="nav-link flowing-gradient">
               <motion.button
@@ -61,17 +63,6 @@ export default function NavBar() {
         </ul>
 
         <ul className="flex flex-wrap">
-          {user ? (
-            <li className="nav-item">
-              <motion.button
-                className="nav-link flowing-gradient m-2"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                {user.username}
-              </motion.button>
-            </li>
-          ) : null}
           <li className="nav-item">
             <motion.button
               className="nav-link flowing-gradient m-2"
@@ -85,6 +76,18 @@ export default function NavBar() {
               Log Out
             </motion.button>
           </li>
+
+        {user ? (
+              <li className="nav-item">
+                <motion.button
+                  className="nav-link flowing-gradient m-2"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {user.username}
+                </motion.button>
+              </li>
+            ) : null}
         </ul>
       </div>
     </nav>

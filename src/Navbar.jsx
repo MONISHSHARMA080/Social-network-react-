@@ -19,10 +19,9 @@ export default function NavBar() {
     navigate("/login");
   }
 
-  
   return (
     <>
-      <nav className="container mx-auto flex justify-between items-center ">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <span
           className="navbar-brand"
           style={{
@@ -35,7 +34,7 @@ export default function NavBar() {
           Network
         </span>
 
-        <div className="lg:flex lg:flex-wrap">
+        <div className="flex flex-wrap">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link className="nav-link flowing-gradient" to="/">
@@ -70,29 +69,10 @@ export default function NavBar() {
                 </motion.button>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/login">
-                <motion.button
-                  className="nav-link flowing-gradient"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  Log in
-                </motion.button>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link flowing-gradient" to="/register">
-                <motion.button
-                  className="nav-link flowing-gradient"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  Register
-                </motion.button>
-              </Link>
-            </li>
-            <li className="nav-item">
+          </ul>
+
+          {user ? (
+            <div className="flex flex-row justify-end">
               <motion.button
                 className="nav-link flowing-gradient m-2"
                 onClick={(e) => {
@@ -104,19 +84,36 @@ export default function NavBar() {
               >
                 Log Out
               </motion.button>
-            </li>
-            {user ? (
-              <li className="nav-item">
+              <motion.button
+                className="nav-link flowing-gradient m-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                {user.username}
+              </motion.button>
+            </div>
+          ) : (
+            <>
+              <Link className="nav-link flowing-gradient m-2" to="/login">
                 <motion.button
-                  className="nav-link flowing-gradient m-2"
+                  className="nav-link flowing-gradient"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  {user.username}
+                  Log in
                 </motion.button>
-              </li>
-            ) : null}
-          </ul>
+              </Link>
+              <Link className="nav-link flowing-gradient m-2" to="/register">
+                <motion.button
+                  className="nav-link flowing-gradient"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Register
+                </motion.button>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
       <div id="component">

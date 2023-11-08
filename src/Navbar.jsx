@@ -21,79 +21,80 @@ export default function NavBar() {
 
 
 
-  return ( <>
-    <nav className=" bg-slate-950 p-4">
-      <div className="flex flex-wrap justify-between">
-        <ul className="flex flex-wrap">
-          <li className="nav-item">
-            <Link to="/" className="nav-link flowing-gradient">
-              <motion.button
-                className="nav-link flowing-gradient"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                All Posts
-              </motion.button>
-            </Link>
-          </li>
-          
-          <li className="nav-item">
-            <Link to="/following" className="nav-link flowing-gradient">
-              <motion.button
-                className="nav-link flowing-gradient"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Following
-              </motion.button>
-            </Link>
-          </li>
-
-          <li className="nav-item">
-            <Link to="New-post" className="nav-link flowing-gradient">
-              <motion.button
-                className="nav-link flowing-gradient"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                New post
-              </motion.button>
-            </Link>
-          </li>
-        </ul>
-
-        <ul className="flex flex-wrap">
-          <li className="nav-item">
-            <motion.button
-              className="nav-link flowing-gradient m-2"
-              onClick={(e) => {
-                e.preventDefault();
-                logout();
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Log Out
-            </motion.button>
-          </li>
-{/* spam  */}
-        {user ? (
+  return (
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link className="nav-link flowing-gradient" to="/">
+                  <motion.button
+                    className="nav-link flowing-gradient"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    All Posts
+                  </motion.button>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link flowing-gradient" to="/following">
+                  <motion.button
+                    className="nav-link flowing-gradient"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    Following
+                  </motion.button>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link flowing-gradient" to="New-post">
+                  <motion.button
+                    className="nav-link flowing-gradient"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    New post
+                  </motion.button>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                {user ? (
+                  <motion.button
+                    className="nav-link flowing-gradient m-2"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    {user.username}
+                  </motion.button>
+                ) : null}
+              </li>
               <li className="nav-item">
                 <motion.button
                   className="nav-link flowing-gradient m-2"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    logout();
+                  }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  {user.username}
+                  Log Out
                 </motion.button>
               </li>
-            ) : null}
-        </ul>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="component">
+        <Outlet />
       </div>
-    </nav>
-    <div id="component">
-      <Outlet />
-    </div>
-  </>
-);
+    </>
+  );
 }

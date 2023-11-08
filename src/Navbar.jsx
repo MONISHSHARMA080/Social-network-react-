@@ -20,7 +20,10 @@ export default function NavBar() {
   }
 
   if ( user){
+
+    console.log("++++++++++++++");
     console.log(user);
+    console.log("++++++++++++");
   }
 
 
@@ -28,7 +31,7 @@ export default function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="flex flex-wrap justify-between">
-          <div className="flex flex-wrap">
+          {/* <div className="flex flex-wrap"> */}
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link className="nav-link flowing-gradient" to="/">
@@ -134,7 +137,7 @@ export default function NavBar() {
                 </motion.button>
               </li>
             </ul>
-          </div>
+          {/* </div> */}
         </div>
       </nav>
       <div id="component">

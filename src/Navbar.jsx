@@ -66,7 +66,7 @@ export default function NavBar() {
               <li className="nav-item">
                 {user ? (
                   <motion.button
-                    className="nav-link flowing-gradient m-2"
+                    className="nav-link flowing-gradient"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -77,7 +77,7 @@ export default function NavBar() {
               <li className="nav-item">
                 {user ? (
                   <motion.button
-                    className="nav-link flowing-gradient m-2"
+                    className="nav-link flowing-gradient"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -98,7 +98,7 @@ export default function NavBar() {
               <li className="nav-item">
                 {user ? (
                   <motion.button
-                    className="nav-link flowing-gradient m-2"
+                    className="nav-link flowing-gradient"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -118,7 +118,7 @@ export default function NavBar() {
               </li>
               <li className="nav-item">
                 <motion.button
-                  className="nav-link flowing-gradient m-2"
+                  className="nav-link flowing-gradient "
                   onClick={(e) => {
                     e.preventDefault();
                     logout();

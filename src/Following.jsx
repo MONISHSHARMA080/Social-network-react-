@@ -8,7 +8,7 @@ import { motion, useAnimation } from 'framer-motion';
 
 export default function Following() {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const {user , authTokens} = useContext(AuthContext)
     const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ export default function Following() {
 
         .then((json_response) => {
           setData(json_response);
-          // console.log(json_response)
+          console.log(json_response)
         })
         .catch((err) => {
           console.error(err.message);

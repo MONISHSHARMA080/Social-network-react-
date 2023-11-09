@@ -29,7 +29,7 @@ export default function Following() {
                     return response.json();
                 })
                 .then((json_response) => {
-                    setData(json_response);
+                    setData(()=>json_response);
                     setLoading(false); // Set loading to false after data is fetched
                     console.log(json_response);
                 })

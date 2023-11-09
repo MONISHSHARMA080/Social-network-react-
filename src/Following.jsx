@@ -64,7 +64,7 @@ const postAnimation = {
       <>
         <h1 className='text-5xl font-bold m-6 p-4 flex-shrink  text-amber-500' > Following:</h1>
         <div className='post-container'> 
-            {data.map((post) => (
+        {data ? ( data.map((post) => (
                 <motion.div
                 key={post.id}
                 initial="hidden" // Set initial animation state
@@ -81,7 +81,8 @@ const postAnimation = {
                           key={post.id}
                         />
                         </motion.div>         
-                          ))}
+                          ))): (<h2>jbhdchdcbcbhd</h2>) }
+           
       </div>
       </>
     );

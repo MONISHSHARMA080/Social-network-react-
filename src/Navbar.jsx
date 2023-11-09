@@ -75,15 +75,7 @@ export default function NavBar() {
                 ) : null}
               </li>
               <li className="nav-item">
-                {user ? (
-                  <motion.button
-                    className="nav-link flowing-gradient"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    Register
-                  </motion.button>
-                ) : (
+                {user ? null : (
                   <Link className="nav-link flowing-gradient" to="/register">
                     <motion.button
                       className="nav-link flowing-gradient"
@@ -96,15 +88,7 @@ export default function NavBar() {
                 )}
               </li>
               <li className="nav-item">
-                {user ? (
-                  <motion.button
-                    className="nav-link flowing-gradient"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    Log in
-                  </motion.button>
-                ) : (
+                {user ? null : (
                   <Link className="nav-link flowing-gradient" to="/login">
                     <motion.button
                       className="nav-link flowing-gradient"

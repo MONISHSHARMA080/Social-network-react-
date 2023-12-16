@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import  { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthContext from './context/AuthContext';
 import './styles(post).css';
@@ -19,12 +19,10 @@ useEffect(()=>{
     if (user === null){
        navigate("/");
     }
-    else{
-      }
-    
 
    if (number> 0 && number<2 ) {
     api_call();
+    
    }   
 
 
@@ -44,11 +42,14 @@ function api_call(){
       })
         .then((response) => response.json())
         .then((result) => {
-            
             navigate("/");
-          //  Print result
-          // console.log(result);
+          console.log(result);
+        })
+        .catch((err) => {
+          console.error(err.message);
         });
+
+        navigate("/");
       
 }
 
@@ -71,7 +72,7 @@ return (<>
                         id="text"
                         name="text"
                         rows="17"
-                        column="10" 
+                        cols="10" 
                         placeholder="Write your post here..."
                         value={text}
                         onChange={(e) => {

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import React, { useEffect, useState ,useContext} from "react";
+import { useEffect, useState ,useContext} from "react";
 import './styles(post).css'; 
 import AuthContext from "./context/AuthContext";
 
@@ -40,12 +40,12 @@ useEffect(()=>{
 
 
 },[])
-useEffect(()=>{
+// useEffect(()=>{
 
- console.log("***************")
- console.log(text)
- console.log("***************")
-},[text])
+//  console.log("***************")
+//  console.log(text)
+//  console.log("***************")
+// },[text])
 
 
 
@@ -72,6 +72,7 @@ function change(e){
     .catch(error => {
         console.error('Error fetching data:  ', error);
     });//catch
+    navigate("/");
 
 
 }
@@ -86,7 +87,7 @@ function change(e){
  <div className="container-n ">
         <div className="card-n">
             <h1>Add a New Post</h1>
-            <form action="" method="post" onSubmit={(e)=>{e.preventDefault();setNumber(number+1)}} >
+            <form action="" method="post" onSubmit={(e)=>{e.preventDefault()}} >
 
                 <div className="form-group-n">
                 <textarea
@@ -94,7 +95,7 @@ function change(e){
                         id="text"
                         name="text"
                         rows="17"
-                        column="10" 
+                        cols="10" 
                         placeholder="Write your post here..."
                         value={text}
                         required

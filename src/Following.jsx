@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Post from './allPosts_home';
 import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
+import { motion,  } from 'framer-motion';
 
 export default function Following() {
   const [data, setData] = useState(null);
@@ -21,7 +21,7 @@ export default function Following() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${authTokens.access}`,
+          'Authorization':`Bearer ${authTokens.access}` // Include the access token in the headers
         },
       })
         .then((response) => {
@@ -43,7 +43,7 @@ export default function Following() {
   }, [user, authTokens.access, navigate]);
 
   // Animation
-  const controls = useAnimation();
+  // const controls = useAnimation();
   const postAnimation = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
@@ -75,7 +75,7 @@ export default function Following() {
             </motion.div>
           ))
         ) : (
-          <h2>Sorry, you don't have any posts here.</h2>
+          <h2  >Sorry, you do not have any posts here.</h2>
         )}
       </div>
     </>

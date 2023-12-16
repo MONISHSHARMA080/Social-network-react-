@@ -1,8 +1,6 @@
-import React , {useEffect, useState,} from "react";
+import  {useEffect, useState,} from "react";
 import AuthContext from "./AuthContext";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
 
 
 
@@ -14,11 +12,12 @@ const AuthContextProvider = ({children})=>{
     
     
     // for testing only 
-    useEffect(() => {
-       if (user!=null){
-    }
+    // useEffect(() => {
+    //    if (user!=null){
 
-      }, [authTokens,user]);// useEffect
+    // }
+
+    //   }, [authTokens,user]);// useEffect
         
       
       async function loguserin(e) {
@@ -49,22 +48,22 @@ const AuthContextProvider = ({children})=>{
             // console.log("###########################")
             // console.log("access : "+data.access);
             // console.log("pppppppppppppppppppppppppppppppppppppppp");
-            console.log("===========jwt_decode(data.access)============");
-            console.log(jwt_decode(data.access));
-            console.log("===========jwt_decode(data.access)============");
+            // console.log("===========jwt_decode(data.access)============");
+            // console.log(jwt_decode(data.access));
+            // console.log("===========jwt_decode(data.access)============");
           } 
           else {
-            const data = await response.json(); // Parse the response even if it's not a success status
-            console.log("++++++  data: ++++++" );
-            console.log(data);
-            console.log("++++++  data: ++++++" );
-            console.error('Error decoding token11'); 
+            // const data = await response.json(); // Parse the response even if it's not a success status
+            // console.log("++++++  data: ++++++" );
+            // console.log(data);
+            // console.log("++++++  data: ++++++" );
+            // console.error('Error decoding token11'); 
             alert('Something went wrong!');
           }
         } 
         catch (error) {
           console.error('Error--||--:', error.message);
-          console,log(error);
+          console.log(error);
         }// end of catch error
       } // end of loguserin
 
@@ -86,9 +85,9 @@ const AuthContextProvider = ({children})=>{
       })
 
       let data = await response.json()
-      if  (authTokens){
+      // if  (authTokens){
 
-      }
+      // }
      
       
       if (response.status === 200){
@@ -141,7 +140,9 @@ const AuthContextProvider = ({children})=>{
 
 return(
     <AuthContext.Provider value={contextData}  >
-        {loading ? null : children}
+        {loading ? (<>
+        <h1 className=" text-6xl place-self-center mx-56 mt-56  " >Fetching data...</h1>
+        </>) : children}
     </AuthContext.Provider>
 )
 

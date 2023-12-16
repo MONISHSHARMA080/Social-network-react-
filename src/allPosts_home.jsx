@@ -1,6 +1,6 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import './styles(post).css'; 
-import  { useState, useEffect } from 'react';
+import  { useState,  } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from './context/AuthContext';
@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 export default function Post(props) {
 
-  const [number, setNumber] = useState(0)
+  // const [number, setNumber] = useState(0)
   const [likes, setLikes] = useState(props.likes + 1)
   const {user , authTokens } = useContext(AuthContext) // from react router -- provide the login user's id
   // now addind user id taken from decoded jwt tokens to req_usr_id
@@ -63,13 +63,13 @@ export default function Post(props) {
 // console.log("props.requesting_user_id : " +props.requesting_user_id)
 
 // for adding like/s  api 
-  useEffect(() => {
-    if (number === 1){
+//   useEffect(() => {
+//     if (number === 1){
 
-      console.log(props.id)
+//       console.log(props.id)
    
-    } 
-}, [number]);
+//     } 
+// }, [number]);
 
 // make sure to add backend validation too
 function edit(){

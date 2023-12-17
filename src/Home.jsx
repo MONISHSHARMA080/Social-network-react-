@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useContext } from 'react';
+import { useState, useEffect , useContext } from 'react';
 import Post from './allPosts_home';
 import AuthContext from './context/AuthContext';
 import { motion, useAnimation } from 'framer-motion'; 

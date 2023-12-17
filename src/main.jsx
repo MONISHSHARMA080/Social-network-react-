@@ -5,7 +5,7 @@ import Home  from './Home.jsx';
 import Profile from './Profile.jsx'
 import NewPost from './New_post.jsx'
 import Following from './Following.jsx' 
-import ErrorPage from './error-page.jsx' 
+// import ErrorPage from './error-page.jsx' 
 import NavBar from './Navbar.jsx';
 import Login from './login.jsx';
 import Register from './register.jsx';
@@ -13,37 +13,6 @@ import AuthContextProvider from './context/AuthContextProvider.jsx';
 import Edit from './Edit.jsx';
 
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <NavBar />,
-//     errorElement: <ErrorPage />,
-//     children:[
-
-//       {
-//         path: "/",
-//         element: <Home />,
-//         errorElement: <ErrorPage />,
-//       },
-//       {
-//         path: "following",
-//         element: <Following />,
-//         errorElement: <ErrorPage />,
-//       },
-//       {
-//         path: "New-post",
-//         element: <NewPost />,
-//         errorElement: <ErrorPage />,
-//       },
-//       {
-//         path: "profile",
-//         element: <Profile />,
-//         errorElement: <ErrorPage />,
-//       },
-
-//     ],//childern
-//   }//children  
-// ]);
 
 const router = createBrowserRouter(
 // make profile id dynamic on following -->>https://reactrouter.com/en/main/router-components/browser-router#basename

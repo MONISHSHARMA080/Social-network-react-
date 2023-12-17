@@ -43,21 +43,8 @@ const AuthContextProvider = ({children})=>{
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            // console.log("###########################")
-            // console.log(data)
-            // console.log("###########################")
-            // console.log("access : "+data.access);
-            // console.log("pppppppppppppppppppppppppppppppppppppppp");
-            // console.log("===========jwt_decode(data.access)============");
-            // console.log(jwt_decode(data.access));
-            // console.log("===========jwt_decode(data.access)============");
           } 
           else {
-            // const data = await response.json(); // Parse the response even if it's not a success status
-            // console.log("++++++  data: ++++++" );
-            // console.log(data);
-            // console.log("++++++  data: ++++++" );
-            // console.error('Error decoding token11'); 
             alert('Something went wrong!');
           }
         } 
@@ -141,7 +128,7 @@ const AuthContextProvider = ({children})=>{
 return(
     <AuthContext.Provider value={contextData}  >
         {loading ? (<>
-        <h1 className=" text-6xl place-self-center mx-56 mt-56  " >Fetching data...</h1>
+        <h1 className=" text-6xl place-self-center mx-56 mt-56  " >Fetching data(can take upto 15 sec for backend to restart from rest)...</h1>
         </>) : children}
     </AuthContext.Provider>
 )

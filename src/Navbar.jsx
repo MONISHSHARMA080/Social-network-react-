@@ -55,7 +55,7 @@ export default function NavBar() {
                   </motion.button>
                 </Link>
               </li>
-              <li className="nav-item text-2xl">
+              <li className="nav-item text-2xl mt-2 ">
                 {user ? (
                   <motion.button
                     className="nav-link flowing-gradient"

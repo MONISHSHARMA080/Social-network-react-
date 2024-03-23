@@ -15,6 +15,8 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
+console.log("id from usePram",id);
+
 if (authTokens) {
   headers.Authorization = `Bearer ${authTokens.access}`;
 } 
@@ -49,6 +51,7 @@ if (authTokens) {
   function network(){
 
     var user_id = user.user_id ;
+    console.log(user_id,"LLLLLLLLLL");
     fetch('https://social-network-monish.onrender.com/api/networks/', {
 
     method: 'POST',

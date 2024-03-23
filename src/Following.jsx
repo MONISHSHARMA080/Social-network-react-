@@ -10,13 +10,10 @@ export default function Following() {
   const [loading, setLoading] = useState(true);
   const { user, authTokens } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
-    // client side routing as unauth. users don't have following
-    if (user === null) {
-      navigate('/');
-    } else {
-      setLoading(true);
+    console.log(user);
+    if (user != null){
       fetch(`https://social-network-monish.onrender.com/api/network/${user.user_id}`, {
         method: 'GET',
         headers: {
@@ -24,24 +21,27 @@ export default function Following() {
           'Authorization':`Bearer ${authTokens.access}` // Include the access token in the headers
         },
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((json_response) => {
-          setData(json_response);
-          setLoading(false); // Set loading to false when data is fetched
-          console.log(json_response);
-        })
-        .catch((err) => {
-          console.error(err.message);
-          setLoading(false); // Set loading to false in case of an error
-        });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((json_response) => {
+        setData(json_response);
+        setLoading(false); // Set loading to false when data is fetched
+        console.log(json_response);
+      })
+      .catch((err) => {
+        console.error(err.message);
+        setLoading(false); // Set loading to false in case of an error
+      });
     }
-  }, [user, authTokens.access, navigate]);
-
+    else{
+      navigate('/');
+    }
+  }, [user, authTokens]);
+  
   // Animation
   // const controls = useAnimation();
   const postAnimation = {

@@ -12,3 +12,5 @@ node_modules
 *.sln
 *.sw?
 .vercel
+#nodeModules
+node_modules

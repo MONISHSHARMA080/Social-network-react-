@@ -62,15 +62,6 @@ export default function Post(props) {
 // null cause it is not being send by drf
 // console.log("props.requesting_user_id : " +props.requesting_user_id)
 
-// for adding like/s  api 
-//   useEffect(() => {
-//     if (number === 1){
-
-//       console.log(props.id)
-   
-//     } 
-// }, [number]);
-
 // make sure to add backend validation too
 function edit(){
   // send user to a url where id of post is there
